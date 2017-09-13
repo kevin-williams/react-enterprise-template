@@ -1,0 +1,15 @@
+{
+  "service_endpoints":
+  {
+    "TODO_SVC": "https://TODO.com/todo"
+  },
+  "logOptions": {
+    "level": "verbose",
+    "filename": "",
+    "maxsize": 1024000,
+    "tailable": true,
+    "maxFiles": 10,
+    "json": false,
+    "timestamp": true
+  }
+}

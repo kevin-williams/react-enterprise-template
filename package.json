@@ -1,0 +1,58 @@
+{
+  "name": "TODO_Change_name",
+  "version": "1.0.0",
+  "description": "TODO Change description",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "start": "npm run clean && node server.dev.js",
+    "start:prod": "npm run build && node server.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
+    ]
+  },
+  "keywords": [
+    "TODO Change Keyword"
+  ],
+  "author": "DTC - Kevin Williams",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "compression": "^1.6.2",
+    "compression-webpack-plugin": "^0.4.0",
+    "express": "^4.14.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.5.5",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "postcss-loader": "^1.1.1",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2"
+  }
+}
