@@ -43,13 +43,5 @@ router.get('/config', function (request, response) {
     response.json(appSettings);
 });
 
-// Send back the config file
-router.get('/cache/clear', function (request, response) {
-    cache.clear();
-    response.json({
-        'status': 'The cache has been cleared'
-    });
-});
-
 
 module.exports = router;
