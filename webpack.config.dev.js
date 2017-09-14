@@ -19,7 +19,8 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        port: 3000
+        port: 3000,
+        sslPort: 3443
     },
     resolve: {
         modules: [
