@@ -9,7 +9,7 @@ module.exports = {
     entry: [ 
         'babel-polyfill', 
         './src/index.js', 
-        './src/styles/main.scss',
+        './src/styles/base.scss',
     ],
     devtool: 'cheap-module-source-map',
     output: {
