@@ -1,6 +1,10 @@
 # react-redux-template
 Base template for enterprise react-redux projects with feature based layout
 
+# Prepare
+    npm install -g nodemon
+    npm install
+
 # Starting Dev Server
 
 
@@ -10,6 +14,10 @@ Base template for enterprise react-redux projects with feature based layout
 
     npm run build
     node server.js
+
+or 
+    
+    npm start:prod
 
 # SSL Key
 If you want to generate your own SSL Key, do the following 
