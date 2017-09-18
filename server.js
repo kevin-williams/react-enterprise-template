@@ -32,6 +32,7 @@ app.use('/api', appRouter);
 
 // serve index.html
 app.use(express.static('public'));
+app.use('/dist', express.static('dist'));
 
 // listen on http for dev
 http.createServer(app).listen(port);
