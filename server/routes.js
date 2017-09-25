@@ -17,7 +17,7 @@ router.use(bodyParser.json());
 // NOTE: the routes below will be prefixed by /api in the server code
 
 // TODO change this one to take a param by : reference
-router.get('/location/zipCode', locationController.getZipCode);
+router.get('/location/:zipCode(\\d+)', locationController.getZipCode);
 
 // Return the log file as set up in the appSetting file
 router.get('/log', function (request, response) {

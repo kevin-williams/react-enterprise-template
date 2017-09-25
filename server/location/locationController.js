@@ -10,7 +10,7 @@ module.exports = {
         winston.verbose('locationController-getZipCode');
 
         try {
-            const { zipCode } = request.query;
+            const { zipCode } = request.params;
 
             let zipUrl = appSettings.service_endpoints.ZIP_CODE + zipCode;
             winston.debug('\tcalling out to ' + zipUrl);
@@ -40,7 +40,7 @@ module.exports = {
             //     response.json({ status: status, inventory: inventory });
         } catch(error) {
             winston.error('/api/location error=', error);
-            response.json(util.parseServiceErrorStatus('Error looking up location', error));
+            response.json(util.parseServiceErrorStatus('Error looking up location', 'Caught error from call', error, util.ERROR));
         };
 
     }

@@ -8,12 +8,7 @@ import * as c from './locationConstants';
 
 // Method to call out to the zip code service (this one is on our server, but could be external too)
 const callZipCodeService = (zipCode) => (
-    axios.get('/api/location/zipCode', {
-            params: {
-                'zipCode': zipCode
-            }
-        }
-    )
+    axios.get('/api/location/' + zipCode)
 );
 
 /* Take the zip code from the action, and if less than 5, just update the redux state with the entered zip code fragment.

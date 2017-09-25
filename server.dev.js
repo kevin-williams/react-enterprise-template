@@ -41,6 +41,16 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const compiler = webpack(config);
 
+// Fix the webpack compiler looping problem
+const timefix = 11000;
+compiler.plugin('watch-run', (watching, callback) => {
+    watching.startTime += timefix;
+    callback()
+});
+compiler.plugin('done', (stats) => {
+    stats.startTime -= timefix
+})
+
 // set quiet: false if you need to see webpack messages
 app.use(webpackDevMiddleware(compiler, { quiet: false, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));

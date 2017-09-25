@@ -30,8 +30,12 @@ module.exports = {
      */
     parseServiceErrorStatus: function (message, detailMessage, error, severity) {
         let errorStr = error;
-        // If it's not a string, turn it into one
-        if (!error.substring) {
+
+        winston.error('parseServiceErrorStatus Error:' + typeof error);
+
+        // If it's an object, turn it into a string
+        // TODO fix this... doesn't properly handle all errors
+        if (typeof string === 'object') {
             errorStr = JSON.stringify(error);
         }
 
@@ -40,7 +44,7 @@ module.exports = {
                 serviceFailure: true,
                 message: message,
                 detailMessage: detailMessage,
-                error: errorStr,
+                error: error,
                 severity: severity
             }
         };
