@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import styles from './Header.scss';
+import CityState from "../../components/CityState";
 
-// const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => state;
 
-// @connect(mapStateToProps)
+@connect(mapStateToProps)
 export default class Header extends Component {
 
     render() {
 
         return (
-            <h1 className="header">TODO - Real Header Here!</h1>
+            <h1>TODO - Real Header Here! <CityState location={this.props.location}/></h1>
         );
     }
 

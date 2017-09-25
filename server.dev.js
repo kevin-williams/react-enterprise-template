@@ -5,7 +5,7 @@ const fs = require('fs');
 const https = require ('https');
 const path = require ('path');
 
-const appRouter = require('./server/Routes');
+const appRouter = require('./server/routes');
 const config = require('./webpack.config.dev.js');
 
 const port = config.devServer.port;
@@ -29,8 +29,8 @@ app.all('*', function(request, response, next) {
 app.use(express.static('public'));
 app.use('/dist', express.static(path.join(__dirname, 'dist'))) // JS bundles
 
-// use express routing
-// app.use('/api', appRouter);
+// Route server side calls to the route handler
+app.use('/api', appRouter);
 
 // listen on http for dev
 app.listen(port, () => console.log(`Server listening on non-secure port ${port}`));
@@ -42,8 +42,13 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const compiler = webpack(config);
 
 // set quiet: false if you need to see webpack messages
-app.use(webpackDevMiddleware(compiler, { quiet: true, publicPath: config.output.publicPath }));
+app.use(webpackDevMiddleware(compiler, { quiet: false, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
+
+// redirect any missing routes to /
+app.use('*', function(request, response) {
+    response.redirect('/');
+});
 
 https.createServer(sslCert, app).listen(httpsPort);
 console.log(`Server now listening on localhost: ${httpsPort}

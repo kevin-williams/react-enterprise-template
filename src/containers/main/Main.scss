@@ -1,3 +1,13 @@
+a {
+    color: blue;
+    background: aliceblue;
+    border: double;
+    border-radius:  5px;
+    text-decoration: none;
+    padding: 10px;
+}
+
 .main-body {
-    color: red;
+    display: flex;
+    flex-direction: column;
 }

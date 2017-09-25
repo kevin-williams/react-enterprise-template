@@ -1,20 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import Detail from 'containers/detail/Detail';
+import Location from 'containers/location/Location';
 import Header from 'containers/header/Header';
 import Main from 'containers/main/Main';
+import store from 'store/reduxStore';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 render(
-    <Router>
-        <div>
-            <Route component={Header}/>
-            <Route exact path='/' component={Main}/>
-            <Route path='/detail' component={Detail}/>
-        </div>
-    </Router>,
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Route component={Header}/>
+                <Route exact path='/' component={Main}/>
+                <Route path='/location' component={Location}/>
+            </div>
+        </Router>
+    </Provider>,
     document.getElementById('app')
 );
 

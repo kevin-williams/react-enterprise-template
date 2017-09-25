@@ -1,10 +1,10 @@
 {
   "service_endpoints":
   {
-    "TODO_SVC": "https://TODO.com/todo"
+    "ZIP_CODE": "http://api.zippopotam.us/us/"
   },
   "logOptions": {
-    "level": "verbose",
+    "level": "debug",
     "filename": "",
     "maxsize": 1024000,
     "tailable": true,

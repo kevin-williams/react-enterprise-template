@@ -8,7 +8,7 @@ const ExtractNormalCSS = new ExtractTextPlugin("main.css");
 module.exports = {
     entry: [ 
         'babel-polyfill', 
-        './src/index.js', 
+        './src/index.js',
         './src/styles/base.scss',
     ],
     devtool: 'cheap-module-source-map',
@@ -19,8 +19,8 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        port: 3000,
-        sslPort: 3443
+        port: 8080,
+        sslPort: 8443
     },
     resolve: {
         modules: [
