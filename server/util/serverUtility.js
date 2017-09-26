@@ -34,9 +34,12 @@ module.exports = {
         winston.error('parseServiceErrorStatus Error:' + typeof error);
 
         // If it's an object, turn it into a string
-        // TODO fix this... doesn't properly handle all errors
-        if (typeof string === 'object') {
-            errorStr = JSON.stringify(error);
+        if (typeof error === 'object') {
+            if (error.response) {
+                errorStr = `${error.response.status} - ${error.response.statusText}`;
+            } else {
+                errorStr = '';
+            }
         }
 
         return {
@@ -44,7 +47,7 @@ module.exports = {
                 serviceFailure: true,
                 message: message,
                 detailMessage: detailMessage,
-                error: error,
+                error: errorStr,
                 severity: severity
             }
         };
