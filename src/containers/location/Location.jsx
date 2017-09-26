@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ZipCode from '../../components/ZipCode';
+import ZipCode from '../../components/location/ZipCode';
 import { updateZip } from './locationActions';
 
 import styles from './Location.scss';
