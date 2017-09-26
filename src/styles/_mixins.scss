@@ -1,0 +1,29 @@
+@mixin media-xlg {
+	@media only screen and ( min-width: 1800px ) {
+		@content;
+  }
+}
+
+@mixin media-lg {
+	@media only screen and ( min-width: 1100px ) {
+		@content;
+  }
+}
+
+@mixin media-md {
+	@media only screen and ( min-width: 1024px ) {
+		@content;
+  }
+}
+
+@mixin media-sm {
+	@media only screen and ( min-width: 768px ) {
+		@content;
+	}
+}
+
+@mixin media-xs {
+	@media only screen and ( max-width: 480px ) {
+		@content;
+	}
+}

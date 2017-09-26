@@ -1,19 +1,19 @@
-const path = require( 'path' );
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-const autoprefixer = require( 'autoprefixer' );
-const webpack = require( 'webpack' );
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
-const ExtractNormalCSS = new ExtractTextPlugin("main.css");
+const ExtractNormalCSS = new ExtractTextPlugin("base.css");
 
 module.exports = {
-    entry: [ 
-        'babel-polyfill', 
-        './src/index.js', 
+    entry: [
+        'babel-polyfill',
+        './src/index.js',
         './src/styles/base.scss',
     ],
     devtool: 'cheap-module-source-map',
     output: {
-        path: path.join( __dirname, 'dist' ),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -23,10 +23,10 @@ module.exports = {
     },
     resolve: {
         modules: [
-            path.resolve( './src' ),
+            path.resolve('./src'),
             "node_modules"
-            ],
-        extensions: [ '*', '.js', '.jsx', '.css', '.scss' ]
+        ],
+        extensions: ['*', '.js', '.jsx', '.css', '.scss']
     },
     module: {
         loaders: [
@@ -35,7 +35,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
-           {
+            {
                 test: /\.scss$/i,
                use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: [ 'css-loader' ] })
             },
