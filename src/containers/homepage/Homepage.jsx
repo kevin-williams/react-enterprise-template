@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { version } from '../../../package.json';
 
 import styles from './Homepage.scss';
 
@@ -21,6 +22,8 @@ export default class Homepage extends Component {
                         <Link to='/location' className='myapp-homepage__location-link'>Set Location</Link>
                     </li>
                 </ul>
+
+                <h3>{version}</h3>
             </div>
         );
     }

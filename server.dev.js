@@ -33,7 +33,7 @@ app.use('/dist', express.static(path.join(__dirname, 'dist'))) // JS bundles
 app.use('/api', appRouter);
 
 // listen on http for dev
-app.listen(port, () => console.log(`Server listening on non-secure port ${port}`));
+app.listen(port, () => console.log(`Server version ${process.env.npm_package_version} listening on non-secure port ${port}`));
 
 // Hot reloading - watches for changes to the files and recompiles/packs when detected
 const webpack = require('webpack');
@@ -61,6 +61,5 @@ app.use('*', function(request, response) {
 });
 
 https.createServer(sslCert, app).listen(httpsPort);
-console.log(`Server now listening on localhost: ${httpsPort}
+console.log(`Server version ${process.env.npm_package_version} now listening on localhost: ${httpsPort}
     *** wait for webpack built message ***`);
-

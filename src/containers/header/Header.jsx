@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import styles from './Header.scss';
 import CityState from "../../components/location/CityState";
+import styles from './Header.scss';
 
 const mapStateToProps = (state) => state;
 

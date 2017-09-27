@@ -58,9 +58,9 @@ if (cluster.isMaster) {
 
     // listen on http for dev
     http.createServer(app).listen(port);
-    console.log(`Server now listening on non-secure port: ${port}`);
+    console.log(`Server version ${process.env.npm_package_version} now listening on non-secure port: ${port}`);
 
     https.createServer(sslCert, app).listen(httpsPort);
-    console.log(`Server now listening on secure port: ${httpsPort}`);
+    console.log(`Server version ${process.env.npm_package_version} now listening on secure port: ${httpsPort}`);
 
 }

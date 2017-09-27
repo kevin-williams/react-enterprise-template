@@ -46,6 +46,6 @@ module.exports = {
         ]
     },
     plugins: [
-        extractCSS,
+        extractCSS
     ]
 }
