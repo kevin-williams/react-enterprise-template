@@ -14,7 +14,7 @@ export default class Location extends Component {
     render() {
 
         return (
-            <div className="detail-body">
+            <div className="myapp-location">
                 <ZipCode location={this.props.location} updateZip={this.props.updateZip}/>
                 <button onClick={() => this.props.history.goBack()} >Back</button>
             </div>

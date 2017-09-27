@@ -1,4 +1,8 @@
-h1 {
-    background: #090a0b;
-    color: #d5d5d5;
+@import '~styles/main';
+
+.myapp-header {
+    h1 {
+        background: $dt-stormgrey;
+        color: #d5d5d5;
+    }
 }

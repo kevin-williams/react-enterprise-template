@@ -14,7 +14,7 @@ export default class ZipCode extends Component {
         const { location } = this.props;
 
         return (
-            <div>
+            <div className="myapp-zipcode">
                 <h3>Location</h3>
                 <input type="text" id="zipcode" value={ location.zipCode } placeholder="Zip Code" onChange={ this.changeZip }/>
                 <CityState location={location}/>

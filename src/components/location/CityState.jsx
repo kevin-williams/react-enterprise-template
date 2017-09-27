@@ -11,7 +11,7 @@ export default class CityState extends Component {
 
 
         if (location.city) {
-            cityState = <span>{ location.city }, { location.state }</span>;
+            cityState = <span className="myapp-city-state">{ location.city }, { location.state }</span>;
         }
 
 

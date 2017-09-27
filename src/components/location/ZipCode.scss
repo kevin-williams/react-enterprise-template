@@ -1,3 +1,7 @@
-h3 {
-    color: blue;
+@import '~styles/main';
+
+.myapp-zipcode {
+    h3 {
+        color: $dt-blue;
+    }
 }

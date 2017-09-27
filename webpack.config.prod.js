@@ -3,13 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
-const ExtractNormalCSS = new ExtractTextPlugin("base.css");
+const extractCSS = new ExtractTextPlugin("main.css");
 
 module.exports = {
     entry: [
         'babel-polyfill',
         './src/index.js',
-        './src/styles/base.scss',
+        './src/styles/main.scss',
     ],
     devtool: 'cheap-module-source-map',
     output: {
@@ -26,7 +26,10 @@ module.exports = {
             path.resolve('./src'),
             "node_modules"
         ],
-        extensions: ['*', '.js', '.jsx', '.css', '.scss']
+        extensions: ['*', '.js', '.jsx', '.css', '.scss'],
+        alias: {
+            styles: path.resolve(__dirname, 'src/styles')
+        }
     },
     module: {
         loaders: [
@@ -37,7 +40,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/i,
-               use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: [ 'css-loader' ] })
+                use: extractCSS.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] })
             },
         ]
     },
@@ -60,6 +63,6 @@ module.exports = {
             exclude: [/\.min\.js$/gi] // skip pre-minified libs
         }),
 
-        ExtractNormalCSS,
+        extractCSS,
     ]
 }

@@ -1,3 +1,5 @@
-span {
-    color: darkgreen;
+@import '~styles/main';
+
+.myapp-city-state {
+    color: $dt-red;
 }

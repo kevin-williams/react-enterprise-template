@@ -19,6 +19,10 @@ or
     
     npm start:prod
 
+# Styling
+Replace myapp prefix with a suitable prefix for your app to ensure proper namespace
+for css styles.
+
 # SSL Key
 If you want to generate your own SSL Key, do the following 
 steps in the sslcert directory:

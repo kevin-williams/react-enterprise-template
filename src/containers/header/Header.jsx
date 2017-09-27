@@ -12,7 +12,9 @@ export default class Header extends Component {
     render() {
 
         return (
-            <h1>TODO - Real Header Here! <CityState location={this.props.location}/></h1>
+            <span className="myapp-header">
+                <h1>TODO - Real Header Here! <CityState location={this.props.location}/></h1>
+            </span>
         );
     }
 
