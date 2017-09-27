@@ -46,7 +46,7 @@ module.exports = {
              * Then send back a status object including information about the error.
              */
             winston.error('/api/location error=', error);
-            response.json(util.parseServiceErrorStatus('Error looking up location', 'Caught error from call', error, util.ERROR));
+            response.json(util.parseServiceErrorStatus('Error looking up location', 'Zip Code not found', error, util.ERROR));
         };
 
     }
