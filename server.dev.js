@@ -35,7 +35,7 @@ app.use('/api', appRouter);
 // listen on http for dev
 app.listen(port, () => console.log(`Server listening on non-secure port ${port}`));
 
-// Hot reloading
+// Hot reloading - watches for changes to the files and recompiles/packs when detected
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -51,7 +51,7 @@ compiler.plugin('done', (stats) => {
     stats.startTime -= timefix
 })
 
-// set quiet: false if you need to see webpack messages
+// set quiet: false if you need to see webpack messages, true if you want shorter output on the server side
 app.use(webpackDevMiddleware(compiler, { quiet: false, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 

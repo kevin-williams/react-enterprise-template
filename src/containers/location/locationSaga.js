@@ -6,6 +6,14 @@ import { DEFAULT_SERVICE_STATUS } from '../../utils'
 
 import * as c from './locationConstants';
 
+/* This function is called whenever an action is published to redux to check for a "GET_ZIP" action.
+    If found, call getZipCode
+   This is registered in the root saga.
+ */
+export function* watchUpdateZip() {
+    yield call(takeEvery, c.GET_ZIP, getZipCode);
+}
+
 // Method to call out to the zip code service (this one is on our server, but could be external too)
 const callZipCodeService = (zipCode) => (
     axios.get('/api/location/' + zipCode)
@@ -45,9 +53,4 @@ export function* getZipCode(action) {
     } catch (error) {
         yield put({ type: c.GET_ZIP_FAILURE, status: parseServiceErrorStatus('Error looking up zip code', error) });
     }
-}
-
-// This function is called whenever an action is published to redux to check for a "GET_ZIP" action.  If found, call getZipCode
-export function* watchUpdateZip() {
-    yield call(takeEvery, c.GET_ZIP, getZipCode);
 }

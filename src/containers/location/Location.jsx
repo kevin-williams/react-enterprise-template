@@ -6,9 +6,10 @@ import { updateZip } from './locationActions';
 
 import styles from './Location.scss';
 
+// Take redux state and set it into the component properties for easy access
 const mapStateToProps = (state) => state;
-
 @connect(mapStateToProps, { updateZip })
+
 export default class Location extends Component {
 
     render() {

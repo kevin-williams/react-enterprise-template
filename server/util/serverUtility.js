@@ -1,7 +1,7 @@
 const winston = require('winston');
 const appSettings = require('../../config/app_settings.json');
 
-// Set a default logging level;
+// Set the logging level from the config when the server starts;
 winston.level = appSettings.logOptions.level;
 
 // If we have a log file, remove the console log and only log to the file
@@ -17,7 +17,7 @@ if (appSettings.logOptions.filename.length > 0) {
 
 
 module.exports = {
-    ERROR: 'error',
+    ERROR: 'error',  // Constants for severity in status message
     WARN: 'warn',
 
     /**

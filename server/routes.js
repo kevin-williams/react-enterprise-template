@@ -5,9 +5,7 @@ const winston = require('winston');
 
 // import custom modules
 const appSettings = require('../config/app_settings.json');
-
 const locationController = require('./location/locationController');
-
 
 // parse json data passed to node server via routes
 const bodyParser = require('body-parser');

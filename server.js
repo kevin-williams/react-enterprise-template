@@ -20,12 +20,12 @@ const sslCert = {
 
 // start clustering for production
 if (cluster.isMaster) {
-    // Count the machine's CPUs
+    // Count the machine's CPU Threads
     let cpuCount = require('os').cpus().length;
 
     console.log(`starting ${cpuCount} threads`);
 
-    // Create a worker for each CPU
+    // Create a worker for each CPU thread
     for (let i = 0; i < cpuCount; i += 1) {
         cluster.fork();
     }
@@ -39,10 +39,13 @@ if (cluster.isMaster) {
         response.redirect('https://' + request.hostname + ':' + httpsPort + request.url);
     });
 
+    // Compress the objects served by this server to greatly reduce download size
     app.use(compression());
 
-    // serve index.html
+    // serve index.html and other public files like images
     app.use(express.static('public'));
+
+    // serve the precompiled files
     app.use('/dist', express.static('dist'));
 
     // use express routing

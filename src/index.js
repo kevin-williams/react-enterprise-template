@@ -9,6 +9,11 @@ import store from 'store/reduxStore';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+/**
+ * Set up the redux store for the app.
+ *
+ * Set up the main react-router routes for the app.   As of react-router v4, Routes can be nested throughout the app.
+ */
 render(
     <Provider store={store}>
         <Router>

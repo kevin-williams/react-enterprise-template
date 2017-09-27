@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import CityState from './CityState';
 
 import style from './ZipCode.scss';
@@ -21,4 +23,9 @@ export default class ZipCode extends Component {
             </div>
         )
     }
+}
+
+ZipCode.propTypes = {
+    location: PropTypes.object,
+    updateZip: PropTypes.func
 }

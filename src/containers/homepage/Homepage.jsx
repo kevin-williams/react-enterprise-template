@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 import styles from './Homepage.scss';
 
+// Take redux state and set it into the component properties for easy access
 const mapStateToProps = (state) => state;
-
 @connect(mapStateToProps)
+
 export default class Homepage extends Component {
 
     render() {

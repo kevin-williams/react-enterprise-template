@@ -1,7 +1,13 @@
-
+// This is used to set up the default status for service calls that haven't happened yet.
 export const DEFAULT_SERVICE_STATUS = { serviceFailure: null, message: '' }
 
-
+/**
+ * Helper function to get a URL parameter from the initial load of the app.   Often used to set state from the URL by
+ * calling this function directly from the reducer.
+ *
+ * @param paramName the url paremeter to extract
+ * @returns {*} the parameter value
+ */
 export const getUrlParam = (paramName) => {
 	let paramValue;
 	const paramIdx = window.location.search.indexOf(paramName);
