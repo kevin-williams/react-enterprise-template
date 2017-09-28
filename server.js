@@ -5,8 +5,12 @@ const express = require('express');
 const fs = require('fs');
 const http = require('http');
 const https = require ('https');
+const winston = require('winston');
 
 const appRouter = require('./server/routes');
+
+// Just to do the winston setup before we log
+const util = require('./server/util/serverUtility');
 
 const app = express();
 const port = 8080;
@@ -23,7 +27,7 @@ if (cluster.isMaster) {
     // Count the machine's CPU Threads
     let cpuCount = require('os').cpus().length;
 
-    console.log(`starting ${cpuCount} threads`);
+    winston.error(`starting ${cpuCount} threads`);
 
     // Create a worker for each CPU thread
     for (let i = 0; i < cpuCount; i += 1) {
@@ -58,9 +62,9 @@ if (cluster.isMaster) {
 
     // listen on http for dev
     http.createServer(app).listen(port);
-    console.log(`Server version ${process.env.npm_package_version} now listening on non-secure port: ${port}`);
+    winston.error(`Server version ${process.env.npm_package_version} now listening on non-secure port: ${port}`);
 
     https.createServer(sslCert, app).listen(httpsPort);
-    console.log(`Server version ${process.env.npm_package_version} now listening on secure port: ${httpsPort}`);
+    winston.error(`Server version ${process.env.npm_package_version} now listening on secure port: ${httpsPort}`);
 
 }

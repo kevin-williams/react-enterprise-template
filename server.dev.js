@@ -4,9 +4,13 @@ const app = express();
 const fs = require('fs');
 const https = require ('https');
 const path = require ('path');
+const winston = require('winston');
 
 const appRouter = require('./server/routes');
 const config = require('./webpack.config.dev.js');
+
+// Just to do the winston setup before we log
+const util = require('./server/util/serverUtility');
 
 const port = config.devServer.port;
 const httpsPort = config.devServer.sslPort
@@ -33,7 +37,7 @@ app.use('/dist', express.static(path.join(__dirname, 'dist'))) // JS bundles
 app.use('/api', appRouter);
 
 // listen on http for dev
-app.listen(port, () => console.log(`Server version ${process.env.npm_package_version} listening on non-secure port ${port}`));
+app.listen(port, () => winston.error(`Server version ${process.env.npm_package_version} listening on non-secure port ${port}`));
 
 // Hot reloading - watches for changes to the files and recompiles/packs when detected
 const webpack = require('webpack');
@@ -61,5 +65,5 @@ app.use('*', function(request, response) {
 });
 
 https.createServer(sslCert, app).listen(httpsPort);
-console.log(`Server version ${process.env.npm_package_version} now listening on localhost: ${httpsPort}
+winston.error(`Server version ${process.env.npm_package_version} now listening on localhost: ${httpsPort}
     *** wait for webpack built message ***`);
