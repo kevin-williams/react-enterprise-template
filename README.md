@@ -56,6 +56,14 @@ or
 Replace myapp prefix with a suitable prefix for your app to ensure proper namespace
 for css styles.
 
+##Versioning
+To increase the version, please use:
+
+    npm version patch     -- takes 1.0.1 to 1.0.2
+    npm version minor     -- takes 1.0.1 to 1.1.0
+    npm version major     -- takes 1.0.1 to 2.0.0
+
+
 # SSL Key
 If you want to generate your own SSL Key, do the following 
 steps in the sslcert directory:
