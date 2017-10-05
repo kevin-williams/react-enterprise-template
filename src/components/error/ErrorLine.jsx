@@ -19,20 +19,22 @@ export default class ErrorLine extends Component {
                 let type = this.props.severity; 
                 //if the type is error then display error message
                 if(type === 'error') {
-                    errorLine = <div className="myapp-error-line" id="auto-error-message"><span
-                    className="myapp-error-line__image"
-                                                                                        ><img
-                    src="images/error_icon_thin.png"
-                                                                                        /></span>{ status.message } </div>;
+                    errorLine = <div className="myapp-error-line" id="auto-error-message">
+                        <span className="myapp-error-line__image">
+                            <img src="images/error_icon_thin.png"/>
+                        </span>{ status.message }
+                        <div>{ status.detailMessage }</div>
+                    </div>;
+                } else {
+                    //if the type is warn then display warning message
+                    errorLine = <div className="myapp-warn-line" id="auto-warn-message">
+                        <span className="myapp-warn-line__image">
+                            <img src="images/warning_icon_thin.png"/>
+                        </span>{ status.message }
+                        <div>{ status.detailMessage }</div>
+                    </div>;
                 }
-                //if the type is warn then display warning message 
-                else {
-                   errorLine = <div className="myapp-warn-line" id="auto-warn-message"><span
-                    className="myapp-warn-line__image"
-                                                                                     ><img
-                    src="images/warning_icon_thin.png"
-                                                                                     /></span>{ status.message } </div>;
-                }
+
              
                 if (status.serviceFailure == null) {
                     // service not called yet
