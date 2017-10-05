@@ -34,6 +34,22 @@ if (cluster.isMaster) {
         cluster.fork();
     }
 } else {
+    // Add a default logging function for all routes
+    app.use(function (request, response, next) {
+        if (winston.level == 'debug') {
+            winston.debug(`Calling request ${ request.originalUrl }`);
+
+            let original = response.json.bind(response);
+            response.json = (body) => {
+                winston.debug(`Called request ${ request.originalUrl }\n\tresponse=${ JSON.stringify(body) }`);
+                original(body);
+            };
+        }
+
+        next();
+
+    });
+
     // Redirect non-secure traffic to the secure server
     app.all('*', function (request, response, next) {
         if (request.secure) {
