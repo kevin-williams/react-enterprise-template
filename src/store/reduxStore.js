@@ -10,10 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
  *
  * It then uses the saga middleware to help manage the actions posted to redux.
  */
-const store = createStore(
-    rootReducer,
-	applyMiddleware(sagaMiddleware)
-);
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 // Register the sagas to the middleware so they fire
 sagaMiddleware.run(rootSaga);

@@ -18,33 +18,32 @@ router.use(bodyParser.json());
 router.get('/location/:zipCode(\\d+)', locationController.getZipCode);
 
 // Return the log file as set up in the appSetting file
-router.get('/log', function (request, response) {
-    const { level } = request.query;
+router.get('/log', function(request, response) {
+  const { level } = request.query;
 
-    // Change the log level
-    if (level) {
-        winston.level = level;
-        winston.error('Set logging level=' + level);
-        response.json({ status: 'success', message: 'log level=' + level });
+  // Change the log level
+  if (level) {
+    winston.level = level;
+    winston.error('Set logging level=' + level);
+    response.json({ status: 'success', message: 'log level=' + level });
+  } else {
+    // send the log file back
+    if (appSettings.logOptions.filename !== undefined && appSettings.logOptions.filename.length > 0) {
+      response.sendFile(appSettings.logOptions.filename);
     } else {
-        // send the log file back
-        if (appSettings.logOptions.filename !== undefined && appSettings.logOptions.filename.length > 0) {
-            response.sendFile(appSettings.logOptions.filename);
-        } else {
-            response.json({
-                'error': 'log file not set up properly.  Set the following in the config file.',
-                logOptions: {
-                    'filename': '<path>'
-                }
-            })
-        }
+      response.json({
+        error: 'log file not set up properly.  Set the following in the config file.',
+        logOptions: {
+          filename: '<path>',
+        },
+      });
     }
+  }
 });
 
 // Send back the config file
-router.get('/config', function (request, response) {
-    response.json(appSettings);
+router.get('/config', function(request, response) {
+  response.json(appSettings);
 });
-
 
 module.exports = router;

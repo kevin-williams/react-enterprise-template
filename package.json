@@ -8,21 +8,19 @@
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "npm run clean && nodemon server.dev.js",
-    "start:prod": "npm run build && node server.js"
+    "start:prod": "npm run build && node server.js",
+    "prettier": "prettier --write '**/*.js*'"
   },
   "babel": {
-    "presets": [
-      "babel-preset-env",
-      "react",
-      "stage-2"
-    ],
-    "plugins": [
-      "transform-decorators-legacy"
-    ]
+    "presets": ["babel-preset-env", "react", "stage-2"],
+    "plugins": ["transform-decorators-legacy"]
   },
-  "keywords": [
-    "TODO Change Keyword"
-  ],
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "es5"
+  },
+  "keywords": ["TODO Change Keyword"],
   "author": "DTC - Kevin Williams",
   "license": "ISC",
   "dependencies": {
@@ -56,6 +54,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^1.1.1",
+    "prettier": "^1.7.4",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",

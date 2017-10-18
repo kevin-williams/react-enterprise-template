@@ -7,7 +7,5 @@ import * as location from '../containers/location/locationSaga';
  If you don't put the function in here, the redux action will not work!
  */
 export default function* rootSaga() {
-    yield [
-        location.watchUpdateZip(),
-    ]
+  yield [location.watchUpdateZip()];
 }
