@@ -20,6 +20,7 @@ export default class ErrorLine extends Component {
           continue;
         }
 
+        --replace;
         //if the type is error then display error message
         if (type === 'error') {
           errorLine = (

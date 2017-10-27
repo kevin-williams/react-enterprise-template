@@ -9,7 +9,8 @@
     "build": "npm run clean && npm run build:webpack",
     "start": "npm run clean && nodemon server.dev.js",
     "start:prod": "npm run build && node server.js",
-    "prettier": "prettier --write '**/*.js*'"
+    "prettier": "prettier --write '**/*.js*'",
+    "fortify": "zip -r /tmp/pdlFortify.zip config dist public package.json server server.js webpack.config.js"
   },
   "babel": {
     "presets": ["babel-preset-env", "react", "stage-2"],
