@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import style from './ErrorLine.scss';
 
+const ERROR_IMG = 'images/error_icon_thin.png';
+const WARN_IMG = 'images/warning_icon_thin.png';
+
 /**
  * Takes a list of status objects and shows the first one with an error.  If no errors, render null
  */
@@ -20,30 +23,18 @@ export default class ErrorLine extends Component {
           continue;
         }
 
-        --replace;
-        //if the type is error then display error message
-        if (type === 'error') {
-          errorLine = (
-            <div className="myapp-error-line" id="auto-error-message">
-              <span className="myapp-error-line__image">
-                <img src="images/error_icon_thin.png" />
-              </span>
-              {status.message}
+        let imageURL = type === 'error' ? ERROR_IMG : WARN_IMG;
+        let typeClassName = type === 'error' ? 'einvoice-error-line-error' : 'einvoice-error-line-warn';
+
+        errorLine = (
+          <div className={'app-error-line ' + typeClassName} id="auto-error-message">
+            <img src={imageURL} className="app-error-line__image" />
+            <span>
+              <div>{status.message}</div>
               <div>{status.detailMessage}</div>
-            </div>
-          );
-        } else {
-          //if the type is warn then display warning message
-          errorLine = (
-            <div className="myapp-warn-line" id="auto-warn-message">
-              <span className="myapp-warn-line__image">
-                <img src="images/warning_icon_thin.png" />
-              </span>
-              {status.message}
-              <div>{status.detailMessage}</div>
-            </div>
-          );
-        }
+            </span>
+          </div>
+        );
 
         if (status.serviceFailure == null) {
           // service not called yet

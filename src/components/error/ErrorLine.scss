@@ -1,121 +1,57 @@
 @import '~styles/main';
 
-.myapp-error-line {
-    color: #b21411;
-    height: 44px;
-    position: absolute;
+.app-error-line {
+    top: -20px;
+    position: relative;
+    display: flex;
     text-align: left;
-    top: -10px;
-    width: 100%;
-    left: 0;
-    padding-top: 11px;
     border-top: 2px solid #d9d9d9;
     border-bottom: 2px solid #d9d9d9;
     border-radius: 3px;
     background-color: #FFFFFF;
-    border-right: 3px solid #b21411;
-    padding-left: 60px;
-    -webkit-animation: pdl-error-line 1s ease forwards;
-       -moz-animation: pdl-error-line 1s ease forwards;
-        -ms-animation: pdl-error-line 1s ease forwards;
-         -o-animation: pdl-error-line 1s ease forwards;
-            animation: pdl-error-line 1s ease forwards;
+    -webkit-animation: app-error-line 1s ease forwards;
+    -moz-animation: app-error-line 1s ease forwards;
+    -ms-animation: app-error-line 1s ease forwards;
+    -o-animation: app-error-line 1s ease forwards;
+    animation: app-error-line 1s ease forwards;
 
-            span {
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-            }
-    img {
-        width: 115.8%;
+    &-error {
+        color: #b21411;
+        border-right: 3px solid #b21411;
     }
 
-}
-
-
-.myapp-warn-line {
-    color: #eb9e17;
-    height: 44px;
-    position: absolute;
-    text-align: left;
-    top: -10px;
-    width: 100%;
-    left: 0;
-    padding-top: 11px;
-    border: 2px solid #d9d9d9;
-    border-radius: 3px;
-    background-color: #FFFFFF;
-    border-right: 3px solid #eb9e17;
-    padding-left: 60px;
-    -webkit-animation: pdl-error-line 1s ease forwards;
-       -moz-animation: pdl-error-line 1s ease forwards;
-        -ms-animation: pdl-error-line 1s ease forwards;
-         -o-animation: pdl-error-line 1s ease forwards;
-            animation: pdl-error-line 1s ease forwards;
-
-            span {
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-            }
-    
-    img {
-        width: 115.8%;
+    &-warn {
+        color: #eb9e17;
+        border-right: 3px solid #eb9e17;
     }
 
-
+    &__image {
+        padding-right: 20px;
+    }
 }
 
-@-webkit-keyframes pdl-error-line {
+@-webkit-keyframes app-error-line {
     0% { opacity: 0; }
-    50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { top: 0; }
 }
-@-moz-keyframes pdl-error-line {
+@-moz-keyframes app-error-line {
     0% { opacity: 0; }
-    50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { top: 0; }
 }
-@-ms-keyframes pdl-error-line {
+@-ms-keyframes app-error-line {
     0% { opacity: 0; }
-    50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { top: 0; }
 }
-@-o-keyframes pdl-error-line {
+@-o-keyframes app-error-line {
     0% { opacity: 0; }
-    50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { top: 0; }
 }
-@keyframes pdl-error-line {
+@keyframes app-error-line {
     0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { top: 0; }
-}
-
-@-webkit-keyframes pdl-warn-line {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { top: 0; }
-}
-@-moz-keyframes pdl-warn-line {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { top: 0; }
-}
-@-ms-keyframes pdl-warn-line {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { top: 0; }
-}
-@-o-keyframes pdl-warn-line {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { top: 0; }
-}
-@keyframes pdl-warn-line {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { top: 0; }
 }
