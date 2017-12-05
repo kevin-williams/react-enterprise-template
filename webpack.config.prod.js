@@ -46,8 +46,6 @@ module.exports = {
       compress: {
         warnings: false, // Suppress uglification warnings
         pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
         screw_ie8: true,
       },
       output: {
